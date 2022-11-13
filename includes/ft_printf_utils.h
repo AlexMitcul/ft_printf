@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:30:02 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 03:42:05 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/13 19:29:13 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@
 */
 
 # include <stdio.h>
+# include <string.h>
 
 /**
  * Defines
 */
 
 # define TYPE "%cspdiuxX"
+
+# define MAX 1000000
 
 /**
  * Colors
@@ -58,6 +61,7 @@ typedef struct s_token
  * utils.c
 */
 int	get_number_length(long long value);
+int	ft_abs(int x);
 
 /**
  * debug.c

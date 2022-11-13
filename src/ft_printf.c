@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 23:13:09 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 03:29:51 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/13 19:28:58 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	get_value_from_format(t_token *token, const char *format, va_list *op)
 	{
 		token->asterisk = 1;
 		value = va_arg(*op, int);
+		if (value < 0)
+			value = MAX;
 	}
 	else
 		value = ft_atoi(format);

@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:20:17 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 03:08:00 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/13 19:27:51 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,11 @@ int	get_number_length(long long value)
 		value = value / 10;
 	}
 	return (length);
+}
+
+int	ft_abs(int x)
+{
+	if (x < 0)
+		return (-x);
+	return (x);
 }
