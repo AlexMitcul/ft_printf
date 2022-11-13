@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 23:13:09 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 19:28:58 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/13 22:06:11 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int	get_value_from_format(t_token *token, const char *format, va_list *op)
 	{
 		token->asterisk = 1;
 		value = va_arg(*op, int);
-		if (value < 0)
-			value = MAX;
 	}
 	else
 		value = ft_atoi(format);
@@ -49,14 +47,14 @@ int	get_value_from_format(t_token *token, const char *format, va_list *op)
 		token->precision_v = value;
 	if (token->asterisk == 1)
 		return (1);
-	return (get_number_length(value));
+	return (get_number_length(value, 10));
 }
 
 int	fill_token(t_token *token, const char *format, va_list *op)
 {
 	if (*format == '-')
 		token->dash = 1;
-	else if (*format == '0')
+	else if (*format == '0' && token->dot == 0)
 		token->zero = 1;
 	else if (*format == '.')
 		token->dot = 1;

@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:30:02 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 19:29:13 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/13 20:44:37 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct s_token
 /**
  * utils.c
 */
-int	get_number_length(long long value);
+int	get_number_length(long long value, int base);
 int	ft_abs(int x);
 
 /**

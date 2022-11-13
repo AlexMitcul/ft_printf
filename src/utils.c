@@ -6,13 +6,13 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:20:17 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 19:27:51 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/13 20:44:23 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	get_number_length(long long value)
+int	get_number_length(long long value, int base)
 {
 	int	length;
 
@@ -22,7 +22,7 @@ int	get_number_length(long long value)
 	while (value > 0)
 	{
 		length += 1;
-		value = value / 10;
+		value = value / base;
 	}
 	return (length);
 }
