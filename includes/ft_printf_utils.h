@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:30:02 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 03:28:14 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/13 03:42:05 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
 # define DEFAULT "\033[0m"
+# define YELLOW "\033[0;33m"
 
 /**
  * Structs

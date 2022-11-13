@@ -6,7 +6,7 @@
 #    By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/12 23:21:50 by amitcul           #+#    #+#              #
-#    Updated: 2022/11/13 03:08:40 by amitcul          ###   ########.fr        #
+#    Updated: 2022/11/13 03:36:39 by amitcul          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ fclean:		clean
 
 ####
 test:
-	cc -o a.out main.c $(NAME)
+	cc $(CFLAGS) -o a.out main.c $(NAME)
 
 re:			fclean all
 

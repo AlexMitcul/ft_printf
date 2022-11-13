@@ -6,14 +6,29 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 03:06:46 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 03:07:07 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/13 03:38:45 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf_utils.h"
+#include "../includes/ft_printf.h"
 
 int	print_percent(t_token *token)
 {
-	(void)token;
-	return (0);
+	int	count;
+
+	count = 0;
+	if (token->dash == 1)
+	{
+		count += write(STDOUT_FILENO, "%", 1);
+		while (token->width_v-- > 1)
+			count += write(STDOUT_FILENO, " ", 1);
+	}
+	else
+	{
+		while (token->width_v-- > 1)
+			count += write(STDOUT_FILENO, " ", 1);
+		count += write(STDOUT_FILENO, "%", 1);
+	}
+	return (count);
 }
