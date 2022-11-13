@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 23:13:09 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 02:57:52 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/13 03:29:51 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int	parse_and_print(const char **format, va_list *op)
 	while (ft_strchr(TYPE, **format) == NULL)
 		(*format) += fill_token(token, *format, op);
 	token->type = **format;
-	print_token(token);
+	// print_token(token);
 	count = print(token, op);
 	free(token);
 	return (count);

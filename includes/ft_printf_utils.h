@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:30:02 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 03:09:59 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/13 03:28:14 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@
 */
 
 # define TYPE "%cspdiuxX"
+
+/**
+ * Colors
+*/
+
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define DEFAULT "\033[0m"
 
 /**
  * Structs
@@ -50,7 +58,6 @@ typedef struct s_token
 */
 int	get_number_length(long long value);
 
-
 /**
  * debug.c
 */
@@ -64,7 +71,7 @@ int	print_percent(t_token *token);
 /**
  * print_c.c
 */
-int	print_c(t_token *token, int value);
+int	print_c(t_token *token, unsigned char value);
 
 /**
  * print_s.c
