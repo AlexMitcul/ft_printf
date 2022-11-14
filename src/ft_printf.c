@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 23:13:09 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 22:06:11 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/13 22:44:10 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	print(t_token *token, va_list *op)
 	else if (token->type == 'u')
 		return (print_u(token, va_arg(*op, unsigned int)));
 	else if (token->type == 'x' || token->type == 'X')
-		return (print_x(token, va_arg(*op, unsigned int))); // ! check type
+		return (print_x(token, va_arg(*op, long long)));
 	return (0);
 }
 

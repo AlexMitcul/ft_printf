@@ -6,14 +6,14 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:59:03 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 22:26:05 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/13 23:05:47 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf_utils.h"
 #include "../includes/ft_printf.h"
 
-char	*to_hex(unsigned int value)
+char	*to_hex(long long value)
 {
 	int		len;
 	char	*res;
@@ -26,7 +26,7 @@ char	*to_hex(unsigned int value)
 	len--;
 	while (len >= 0)
 	{
-		res[len] = "0123456789abcdef"[value % 16];
+		res[len] = "0123456789abcdef"[ft_abs(value % 16)];
 		value = value / 16;
 		len--;
 	}
@@ -53,9 +53,9 @@ static int	print_with_zeros(t_token *token, char *to_print)
 
 	count = 0;
 	len = ft_strlen(to_print);
-	if (token->hash == 1 && token->type == 'x')
+	if (token->hash == 1 && token->type == 'x' && to_print[0] != '0')
 		count += write(STDOUT_FILENO, "0x", 2);
-	else if (token->hash == 1 && token->type == 'X')
+	else if (token->hash == 1 && token->type == 'X' && to_print[0] != '0')
 		count += write(STDOUT_FILENO, "0X", 2);
 	if (token->hash == 1)
 		token->width_v -= 2;
@@ -76,7 +76,7 @@ static int	write_with_width_field(t_token *token, char *to_print)
 
 	count = 0;
 	len = ft_strlen(to_print);
-	if (token->hash == 1)
+	if (token->hash == 1 && to_print[0] != '0')
 		len += 2;
 	if (token->dash == 1)
 	{
