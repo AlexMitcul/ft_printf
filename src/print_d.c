@@ -11,6 +11,14 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_printf_utils.h"
+#include "../includes/ft_printf.h"
+
+// int	print_with_zeros(t_token *token, int value)
+// {
+// 	if (value < 0)
+// 		count += write(STDOUT, "-", 1);
+
+// }
 
 int	print_d(t_token *token, int value)
 {
