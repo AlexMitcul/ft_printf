@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexmitcul <alexmitcul@student.42.fr>      +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:56:01 by alexmitcul        #+#    #+#             */
-/*   Updated: 2022/10/21 17:58:18 by alexmitcul       ###   ########.fr       */
+/*   Updated: 2022/11/15 20:01:31 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@
 
 #include "libft.h"
 
-static unsigned int	ft_abs(int n)
+static unsigned int	ft_abs(long n)
 {
 	if (n < 0)
 		return (-n);
 	return (n);
 }
 
-static unsigned int	count_number_length(int n)
+static unsigned int	count_number_length(long n)
 {
 	int	length;
 
@@ -50,7 +50,7 @@ static unsigned int	count_number_length(int n)
 	return (length);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long n)
 {
 	int		number_length;
 	char	*res;
