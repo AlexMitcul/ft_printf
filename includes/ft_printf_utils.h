@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:30:02 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 23:05:26 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/15 20:23:15 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_token
 */
 int	get_number_length(long long value, int base);
 int	ft_abs(int x);
+int	ft_max(int a, int b);
 
 /**
  * debug.c
@@ -97,7 +98,7 @@ int	print_d(t_token *token, int value);
 /**
  * print_u.c
 */
-int	print_u(t_token *token, unsigned int value);
+int	print_u(t_token *token, long value);
 
 /**
  * print_x.c

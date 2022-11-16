@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 23:13:09 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 22:44:10 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/16 05:27:46 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	print(t_token *token, va_list *op)
 	else if (token->type == 's')
 		return (print_s(token, va_arg(*op, char *)));
 	else if (token->type == 'p')
-		return (print_p(token, va_arg(*op, unsigned int))); // ! check type
+		return (print_p(token, va_arg(*op, long)));
 	else if (token->type == 'u')
 		return (print_u(token, va_arg(*op, unsigned int)));
 	else if (token->type == 'x' || token->type == 'X')
@@ -100,7 +100,6 @@ int	parse_and_print(const char **format, va_list *op)
 	while (ft_strchr(TYPE, **format) == NULL)
 		(*format) += fill_token(token, *format, op);
 	token->type = **format;
-	// print_token(token);
 	count = print(token, op);
 	free(token);
 	return (count);

@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:20:17 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 22:36:19 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/15 20:14:37 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,11 @@ int	ft_abs(int x)
 	if (x < 0)
 		return (-x);
 	return (x);
+}
+
+int	ft_max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
 }
