@@ -6,14 +6,14 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:59:03 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 23:05:47 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/16 05:30:51 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf_utils.h"
 #include "../includes/ft_printf.h"
 
-char	*to_hex(long long value)
+char	*to_h(long long value)
 {
 	int		len;
 	char	*res;
@@ -89,39 +89,38 @@ static int	write_with_width_field(t_token *token, char *to_print)
 		else
 			count += write(STDOUT_FILENO, to_print, len);
 		while ((token->width_v--) - len > 0)
-			count += write(STDOUT_FILENO , " ", 1);
+			count += write(STDOUT_FILENO, " ", 1);
 	}
 	else
 		return (print_with_zeros(token, to_print));
 	return (count);
 }
 
-
-int	print_x(t_token *token, unsigned int value)
+int	print_x(t_token *t, unsigned int value)
 {
 	int		count;
-	char	*hex;
+	char	*h;
 	char	*tmp;
 
 	count = 0;
-	hex = to_hex(value);
-	if (!hex)
+	h = to_h(value);
+	if (!h)
 		return (0);
-	if (token->type == 'X')
-		to_upper_case(&hex);
-	if (token->dot == 1 && (token->precision_v > (int)ft_strlen(hex) || token->precision_v == 0))
+	if (t->type == 'X')
+		to_upper_case(&h);
+	if (t->dot && (t->precision_v > (int)ft_strlen(h) || !t->precision_v))
 	{
-		tmp = ft_memset(malloc(sizeof(char) * (token->precision_v + 1)), '0', token->precision_v);
-		tmp[token->precision_v + 1] = '\0';
-		strlcpy(tmp + (token->precision_v - ft_strlen(hex)), hex, ft_strlen(hex) + 1);
-		free(hex);
-		hex = tmp;
-
+		tmp = ft_memset(malloc(sizeof(char) * (t->precision_v + 1)), '0',
+				t->precision_v);
+		tmp[t->precision_v + 1] = '\0';
+		strlcpy(tmp + (t->precision_v - ft_strlen(h)), h, ft_strlen(h) + 1);
+		free(h);
+		h = tmp;
 	}
-	if (token->width_v >= 0)
-		count += write_with_width_field(token, hex);
+	if (t->width_v >= 0)
+		count += write_with_width_field(t, h);
 	else
-		count += write(STDOUT_FILENO, hex, ft_strlen(hex));
-	free(hex);
+		count += write(STDOUT_FILENO, h, ft_strlen(h));
+	free(h);
 	return (count);
 }
