@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:59:09 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/17 14:54:13 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/17 15:11:46 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	print_u(t_token *token, long value)
 		build_result_with_zeros(token, &to_print);
 	if ((token->type == 'd' || token->type == 'i') && token->plus)
 		add_sign(&to_print, '+');
+	if ((token->type == 'd' || token->type == 'i') && token->plus == 0 && token->space)
+		add_sign(&to_print, ' ');
 	if (token->dash)
 		count += ft_printf("%-*s", token->width_v, to_print);
 	else
