@@ -6,26 +6,12 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 03:05:38 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/17 15:17:40 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/17 16:21:45 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf_utils.h"
 #include "../includes/ft_printf.h"
-
-void	add_sign(char **to_print, char sign)
-{
-	char	*tmp;
-	int		len;
-
-	len = ft_strlen(*to_print);
-	tmp = malloc(sizeof(char) * (len + 2));
-	tmp[0] = sign;
-	tmp[len + 1] = '\0';
-	ft_strlcpy(tmp + 1, *to_print, len + 1);
-	free(*to_print);
-	*to_print = tmp;
-}
 
 static void	build_right_size(char **to_print, int length)
 {

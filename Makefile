@@ -6,7 +6,7 @@
 #    By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/12 23:21:50 by amitcul           #+#    #+#              #
-#    Updated: 2022/11/13 03:36:39 by amitcul          ###   ########.fr        #
+#    Updated: 2022/11/17 16:25:41 by amitcul          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ DIROBJ		= ./objs/
 
 DIRLIB		= ./libft/
 
-SRC			= ft_printf utils debug \
+SRC			= ft_printf utils token \
 	print_c print_d print_p print_percent print_s print_u print_x
 
 SRCS		= $(addprefix ${DIRSRC}, $(addsuffix .c, ${SRC}))
@@ -59,10 +59,8 @@ fclean:		clean
 			${RM} $(NAME)
 			cd ${DIRLIB} && ${MAKE} fclean
 
-
-####
-test:
-	cc $(CFLAGS) -o a.out main.c $(NAME)
+#test:
+#	cc $(CFLAGS) -o a.out main.c $(NAME)
 
 re:			fclean all
 

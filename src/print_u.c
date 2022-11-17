@@ -6,14 +6,12 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:59:09 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/17 15:11:46 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/17 16:22:00 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf_utils.h"
 #include "../includes/ft_printf.h"
-
-void	add_sign(char **to_print, char sign);
 
 static void	build_result_with_zeros(t_token *token, char **to_print)
 {
@@ -58,7 +56,8 @@ int	print_u(t_token *token, long value)
 		build_result_with_zeros(token, &to_print);
 	if ((token->type == 'd' || token->type == 'i') && token->plus)
 		add_sign(&to_print, '+');
-	if ((token->type == 'd' || token->type == 'i') && token->plus == 0 && token->space)
+	if ((token->type == 'd' || token->type == 'i') && token->plus == 0
+		&& token->space)
 		add_sign(&to_print, ' ');
 	if (token->dash)
 		count += ft_printf("%-*s", token->width_v, to_print);

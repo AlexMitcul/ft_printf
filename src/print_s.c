@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 03:07:28 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 20:20:05 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/17 16:19:59 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	print_s(t_token *token, char *value)
 		token->precision_v = ft_strlen(to_print);
 	if (token->dot == 1 && (token->precision_v < (int)ft_strlen(to_print)))
 	{
-		tmp = strncpy(malloc(sizeof(char) * (token->precision_v + 1)), to_print, token->precision_v);
+		tmp = strncpy(malloc(sizeof(char) * (token->precision_v + 1)), to_print,
+				token->precision_v);
 		free(to_print);
 		to_print = tmp;
 	}

@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:20:17 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/17 15:54:40 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/17 16:22:17 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,18 @@ char	*to_hex(long long value)
 		len--;
 	}
 	return (res);
+}
+
+void	add_sign(char **to_print, char sign)
+{
+	char	*tmp;
+	int		len;
+
+	len = ft_strlen(*to_print);
+	tmp = malloc(sizeof(char) * (len + 2));
+	tmp[0] = sign;
+	tmp[len + 1] = '\0';
+	ft_strlcpy(tmp + 1, *to_print, len + 1);
+	free(*to_print);
+	*to_print = tmp;
 }

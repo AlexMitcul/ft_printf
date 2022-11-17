@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:30:02 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/17 15:37:41 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/17 16:23:51 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 */
 
 # define TYPE "%cspdiuxX"
-
 # define MAX 1000000
 
 /**
@@ -58,52 +57,56 @@ typedef struct s_token
 
 }				t_token;
 
+int		get_value_from_format(t_token *token, const char *format, va_list *op);
+
 /**
  * utils.c
 */
-int	get_number_length(long long value, int base);
-int	ft_abs(int x);
-int	ft_max(int a, int b);
+int		get_number_length(long long value, int base);
+int		ft_abs(int x);
+int		ft_max(int a, int b);
 char	*to_hex(long long value);
-
-/**
- * debug.c
-*/
-void	print_token(t_token *token);
+void	add_sign(char **to_print, char sign);
 
 /**
  * print_percent.c
 */
-int	print_percent(t_token *token);
+int		print_percent(t_token *token);
 
 /**
  * print_c.c
 */
-int	print_c(t_token *token, unsigned char value);
+int		print_c(t_token *token, unsigned char value);
 
 /**
  * print_s.c
 */
-int	print_s(t_token *token, char *value);
+int		print_s(t_token *token, char *value);
 
 /**
  * print_p.c
 */
-int	print_p(t_token *token, unsigned long value);
+int		print_p(t_token *token, unsigned long value);
 
 /**
  * print_d.c
 */
-int	print_d(t_token *token, int value);
+int		print_d(t_token *token, int value);
 
 /**
  * print_u.c
 */
-int	print_u(t_token *token, long value);
+int		print_u(t_token *token, long value);
 
 /**
  * print_x.c
 */
-int	print_x(t_token *token, unsigned int value);
+int		print_x(t_token *token, unsigned int value);
 
+/**
+ * token.c
+*/
+
+int		fill_token(t_token *token, const char *format, va_list *op);
+int		init_token(t_token **token);
 #endif

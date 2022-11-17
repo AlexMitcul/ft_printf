@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 23:15:59 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/13 03:09:53 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/17 16:20:45 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@
 # include <stdarg.h>
 
 int	ft_printf(const char *format, ...);
-
 
 #endif
