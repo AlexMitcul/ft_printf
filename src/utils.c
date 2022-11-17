@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:20:17 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/15 20:14:37 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/17 15:54:40 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,24 @@ int	ft_max(int a, int b)
 	if (a > b)
 		return (a);
 	return (b);
+}
+
+char	*to_hex(long long value)
+{
+	int		len;
+	char	*res;
+
+	len = get_number_length(value, 16);
+	res = malloc(sizeof(char) * (len + 1));
+	if (!res)
+		return (NULL);
+	res[len] = '\0';
+	len--;
+	while (len >= 0)
+	{
+		res[len] = "0123456789abcdef"[ft_abs(value % 16)];
+		value = value / 16;
+		len--;
+	}
+	return (res);
 }

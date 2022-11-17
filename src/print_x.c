@@ -6,32 +6,12 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:59:03 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/16 05:30:51 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/17 15:39:30 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf_utils.h"
 #include "../includes/ft_printf.h"
-
-char	*to_h(long long value)
-{
-	int		len;
-	char	*res;
-
-	len = get_number_length((long long) value, 16);
-	res = malloc(sizeof(char) * (len + 1));
-	if (!res)
-		return (NULL);
-	res[len] = '\0';
-	len--;
-	while (len >= 0)
-	{
-		res[len] = "0123456789abcdef"[ft_abs(value % 16)];
-		value = value / 16;
-		len--;
-	}
-	return (res);
-}
 
 static void	to_upper_case(char **str)
 {
@@ -103,7 +83,7 @@ int	print_x(t_token *t, unsigned int value)
 	char	*tmp;
 
 	count = 0;
-	h = to_h(value);
+	h = to_hex(value);
 	if (!h)
 		return (0);
 	if (t->type == 'X')
