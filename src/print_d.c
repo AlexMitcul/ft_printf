@@ -6,53 +6,63 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 03:05:38 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/16 05:27:28 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/17 06:37:01 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf_utils.h"
 #include "../includes/ft_printf.h"
 
-static int	write_with_width_field(t_token *token, char *to_print)
+static void	add_sign(char **to_print)
 {
-	int	count;
-	int	len;
+	char	*tmp;
+	int		len;
 
-	count = 0;
-	len = ft_strlen(to_print);
-	if (token->dash == 1)
-	{
-		count += write(STDOUT_FILENO, to_print, len);
-		while ((token->width_v-- - len) > 0)
-			count += write(STDOUT_FILENO, " ", 1);
-	}
-	else
-	{
-		while ((token->width_v-- - len) > 0)
-			count += write(STDOUT_FILENO, " ", 1);
-		count += write(STDOUT_FILENO, to_print, len);
-	}
-	return (count);
+	len = ft_strlen(*to_print);
+	tmp = malloc(sizeof(char) * (len + 2));
+	tmp[0] = '-';
+	tmp[len + 1] = '\0';
+	ft_strlcpy(tmp + 1, *to_print, len + 1);
+	free(*to_print);
+	*to_print = tmp;
 }
 
-int	print_with_zeros(t_token *token, char *value)
+static void	build_right_size(char **to_print, int length)
 {
-	int	count;
-	int	len;
+	int		len;
+	char	*res;
+
+	len = ft_strlen(*to_print);
+	if (length <= len)
+	{
+		add_sign(to_print);
+		return ;
+	}
+	res = ft_memset(malloc(sizeof(char) * (length + 2)), (int) '0',
+			length + 1);
+	res[0] = '-';
+	res[length + 1] = '\0';
+	ft_strlcpy(res + length - len + 1, *to_print, len + 1);
+	free(*to_print);
+	*to_print = res;
+}
+
+static int	handle_negative_number(t_token *token, char *to_print)
+{
+	int		count;
 
 	count = 0;
-	len = ft_strlen(value);
-	if (value < 0)
-		count += write(STDOUT_FILENO, "-", 1);
-	if (token->precision_v > len)
-	{
-		while ((token->precision_v-- - len) > 0)
-			count += write(STDOUT_FILENO, "0", len);
-		count += write(STDOUT_FILENO, value, len);
-	}
+	if (token->dot)
+		build_right_size(&to_print, token->precision_v);
+	else if (token->dot == 0 && token->dash == 0 && token->zero)
+		build_right_size(&to_print, token->width_v - 1);
 	else
-	{
-	}
+		add_sign(&to_print);
+	if (token->dash)
+		count += ft_printf("%-*s", token->width_v, to_print);
+	else
+		count += ft_printf("%*s", token->width_v, to_print);
+	free(to_print);
 	return (count);
 }
 
@@ -62,15 +72,9 @@ int	print_d(t_token *token, int value)
 	char	*to_print;
 
 	count = 0;
-	to_print = ft_itoa(value);
-	if (!to_print)
-		return (0);
-	if (token->dot || token->zero)
-		count += print_with_zeros(token, to_print);
-	else if (token->width_v > 0)
-		count += write_with_width_field(token, to_print);
-	else
-		count += write(STDOUT_FILENO, to_print, ft_strlen(to_print));
-	free(to_print);
+	if (value >= 0 && token->plus == 0)
+		return (print_u(token, value));
+	to_print = ft_itoa(-value);
+	count += handle_negative_number(token, to_print);
 	return (count);
 }
