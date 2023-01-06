@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:59:03 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/17 15:39:30 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/28 13:52:37 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,10 @@ int	print_x(t_token *t, unsigned int value)
 		to_upper_case(&h);
 	if (t->dot && (t->precision_v > (int)ft_strlen(h) || !t->precision_v))
 	{
-		tmp = ft_memset(malloc(sizeof(char) * (t->precision_v + 1)), '0',
-				t->precision_v);
-		tmp[t->precision_v + 1] = '\0';
-		strlcpy(tmp + (t->precision_v - ft_strlen(h)), h, ft_strlen(h) + 1);
+		tmp = calloc(t->precision_v + 1, sizeof(char));
+		tmp = ft_memset(tmp, '0', t->precision_v);
+		tmp[t->precision_v] = '\0';
+		ft_strlcpy(tmp + (t->precision_v - ft_strlen(h)), h, ft_strlen(h) + 1);
 		free(h);
 		h = tmp;
 	}

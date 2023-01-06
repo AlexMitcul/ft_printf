@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexmitcul <alexmitcul@student.42.fr>      +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:04:29 by alexmitcul        #+#    #+#             */
-/*   Updated: 2022/11/06 21:57:24 by alexmitcul       ###   ########.fr       */
+/*   Updated: 2022/11/28 13:28:48 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

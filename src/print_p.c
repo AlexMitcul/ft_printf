@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:59:15 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/17 15:59:42 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/26 17:08:09 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,15 @@ int	print_p(t_token *token, unsigned long value)
 	char	*tmp;
 
 	count = 0;
-	to_print = to_h(value);
-	tmp = ft_strjoin("0x", to_print);
-	free(to_print);
-	to_print = tmp;
+	if (value == 0)
+		to_print = ft_strdup("(nil)");
+	else
+	{
+		to_print = to_h(value);
+		tmp = ft_strjoin("0x", to_print);
+		free(to_print);
+		to_print = tmp;
+	}
 	if (token->dash)
 		count += ft_printf("%-*s", token->width_v, to_print);
 	else

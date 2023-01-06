@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 02:59:09 by amitcul           #+#    #+#             */
-/*   Updated: 2022/11/17 16:22:00 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/11/26 11:14:31 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	build_result_with_zeros(t_token *token, char **to_print)
 		tmp = memset(malloc(sizeof(char) * (token->precision_v + 1)), (int) '0',
 				token->precision_v);
 		tmp[token->precision_v] = '\0';
-		strlcpy(&(tmp[token->precision_v - len]), *to_print, len + 1);
+		ft_strlcpy(&(tmp[token->precision_v - len]), *to_print, len + 1);
 		free(*to_print);
 		*to_print = tmp;
 	}
@@ -34,7 +34,7 @@ static void	build_result_with_zeros(t_token *token, char **to_print)
 		tmp = memset(malloc(sizeof(char) * (token->width_v + 1)), (int) '0',
 				token->width_v);
 		tmp[token->width_v] = '\0';
-		strlcpy(&(tmp[token->width_v - len]), *to_print, token->width_v + 1);
+		ft_strlcpy(&(tmp[token->width_v - len]), *to_print, token->width_v + 1);
 		free(*to_print);
 		*to_print = tmp;
 	}

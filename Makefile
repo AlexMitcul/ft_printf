@@ -6,7 +6,7 @@
 #    By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/12 23:21:50 by amitcul           #+#    #+#              #
-#    Updated: 2022/11/17 16:25:41 by amitcul          ###   ########.fr        #
+#    Updated: 2022/11/28 13:49:56 by amitcul          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,8 @@ main:		$(NAME)
 
 all:		$(NAME)
 
+bonus: all
+
 clean:
 			${RM} ${OBJS}
 			cd ${DIRLIB} && ${MAKE} clean
@@ -58,9 +60,6 @@ clean:
 fclean:		clean
 			${RM} $(NAME)
 			cd ${DIRLIB} && ${MAKE} fclean
-
-#test:
-#	cc $(CFLAGS) -o a.out main.c $(NAME)
 
 re:			fclean all
 

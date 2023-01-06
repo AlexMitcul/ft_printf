@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexmitcul <alexmitcul@student.42.fr>      +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:08:18 by alexmitcul        #+#    #+#             */
-/*   Updated: 2022/10/19 20:01:38 by alexmitcul       ###   ########.fr       */
+/*   Updated: 2022/11/28 11:26:19 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ size_t	ft_strlen(const char *s)
 
 	size = 0;
 	while (s[size])
-		size += 1;
+		size++;
 	return (size);
 }
